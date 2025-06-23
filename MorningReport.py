@@ -281,18 +281,18 @@ class PremarketReportGenerator:
 
             Here is the raw input: {recent_articles_text} """
 
-        try:
-            print('==================> ', recent_articles_text[:500])
-            response = self.gemini_client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=prompt
-            )
-            text = response.text.strip()
-            # Strip invalid characters like *** at the beginning
-            text = re.sub(r'^[\*\-#>]+', '', text).strip()
-            return text
-        except Exception as e:
-            raise RuntimeError(f"Failed to generate report: {e}")
+        # try:
+        print('==================> ', recent_articles_text[:500])
+        response = self.gemini_client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
+        text = response.text.strip()
+        # Strip invalid characters like *** at the beginning
+        text = re.sub(r'^[\*\-#>]+', '', text).strip()
+        return text
+        # except Exception as e:
+        #     raise RuntimeError(f"Failed to generate report: {e}")
 
     def send_email_report(self, report_text: str, subject: str = "📈 Premarket Report", 
                          to_email: Optional[str] = None) -> None:
