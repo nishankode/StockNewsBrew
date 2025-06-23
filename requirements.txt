@@ -1,0 +1,5 @@
+langchain==0.3.23
+langgraph==0.3.31
+markdown
+notion-client 
+notion-md
