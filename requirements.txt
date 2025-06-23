@@ -3,3 +3,4 @@ langgraph==0.3.31
 markdown
 notion-client 
 notion-md
+google-genai
