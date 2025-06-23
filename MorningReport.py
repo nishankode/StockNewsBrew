@@ -287,7 +287,10 @@ class PremarketReportGenerator:
                 model="gemini-2.5-flash",
                 contents=prompt
             )
-            return response.text
+            text = response.text.strip()
+            # Strip invalid characters like *** at the beginning
+            text = re.sub(r'^[\*\-#>]+', '', text).strip()
+            return text
         except Exception as e:
             raise RuntimeError(f"Failed to generate report: {e}")
 
