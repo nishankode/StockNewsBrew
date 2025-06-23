@@ -282,6 +282,7 @@ class PremarketReportGenerator:
             Here is the raw input: {recent_articles_text} """
 
         try:
+            print('==================> ', recent_articles_text[:500])
             response = self.gemini_client.models.generate_content(
                 model="gemini-2.5-flash",
                 contents=prompt
