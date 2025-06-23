@@ -9,6 +9,9 @@ jobs:
   run-python-script:
     runs-on: ubuntu-latest
 
+    env:  # ✅ Add this section to expose secrets to your script
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
